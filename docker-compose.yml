@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+  uploader:
+    container_name: uploader
+    hostname: uploader 
+    image: uploader
+    volumes:
+      - ./key.json:/key.json
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /key.json
+      BUCKET_NAME: gcp-expert-sandbox-allen-uploader
+      PORT: 8080  
+    ports:
+      - "8080:8080"
+    networks:
+      - uploader
+    #restart: unless-stopped
+
+networks:
+  uploader: {}
