@@ -6,9 +6,9 @@ services:
     hostname: uploader 
     image: uploader
     volumes:
-      - ./key.json:/key.json
+      - ./service_account.json:/service_account.json
     environment:
-      GOOGLE_APPLICATION_CREDENTIALS: /key.json
+      GOOGLE_APPLICATION_CREDENTIALS: /service_account.json
       BUCKET_NAME: gcp-expert-sandbox-allen-uploader
       PORT: 8080  
     ports:
